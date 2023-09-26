@@ -152,9 +152,33 @@ class AdaIN_net(nn.Module):
             #
             #   your code here ...
 
+            # pass content and style image through encoder
+            style_feats = self.encode(style)
+            content_feats = self.encode(content)
+
+            # get t, g(t) and f(g(t)) from ada_in function
+            t = self.adain(content_feats[-1], style_feats[-1])
+            t = alpha * t + (1 - alpha) * content_feats[-1]
+            g_t = self.decode(t)
+            g_t_feats = self.encode(g_t)
+
+            # determine loss values
+            loss_c = self.content_loss(g_t_feats[-1], t)
+            loss_s = self.style_loss(g_t_feats[0], style_feats[0])
+            for i in range(1, 4):
+                loss_s += self.calc_style_loss(g_t_feats[i], style_feats[i])
+
             return loss_c, loss_s
         else:  # inference
             #
             #   your code here ...
+
+            # pass content and style image through encoder
+            style_feats = self.encode(style)
+            content_feats = self.encode(content)
+
+            # get t, g(t) and f(g(t)) from ada_in function
+            feat = self.adain(content_feats[-1], style_feats[-1])
+            feat = alpha * feat + (1 - alpha) * content_feats[-1]
 
             return self.decode(feat)
