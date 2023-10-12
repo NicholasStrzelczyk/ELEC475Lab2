@@ -68,6 +68,7 @@ if __name__ == '__main__':
     optimizer = opt.Adam(net.encoder_decoder.decoder.parameters(), lr=learn)
     print('model loaded OK!')
 
+    print("CudaIsAvailable: {}, UseCuda: {}".format(torch.cuda.is_available(), use_cuda))
     if torch.cuda.is_available() and use_cuda == 'y':
         print('using cuda ...')
         model.cuda()
@@ -115,5 +116,6 @@ if __name__ == '__main__':
     plt.plot(loss_s_train, label='style')
     plt.xlabel("epoch")
     plt.ylabel("loss")
+    plt.legend(loc=1)
     plt.savefig(result_path)
     plt.show()
