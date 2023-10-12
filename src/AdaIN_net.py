@@ -166,7 +166,7 @@ class AdaIN_net(nn.Module):
             loss_c = self.content_loss(g_t_feats[-1], t)
             loss_s = self.style_loss(g_t_feats[0], style_feats[0])
             for i in range(1, 4):
-                loss_s += self.calc_style_loss(g_t_feats[i], style_feats[i])
+                loss_s += self.style_loss(g_t_feats[i], style_feats[i])
 
             return loss_c, loss_s
         else:  # inference
