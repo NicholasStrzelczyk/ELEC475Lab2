@@ -1,4 +1,5 @@
 import argparse
+import time
 import torch
 import AdaIN_net as net
 import custom_dataset as cds
@@ -8,6 +9,12 @@ from pathlib import Path
 from torch.utils.data import DataLoader
 from matplotlib import pyplot as plt
 from torchvision import transforms
+
+
+def get_train_time(start, end):
+    hours, rem = divmod(end - start, 3600)
+    minutes, seconds = divmod(rem, 60)
+    return "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds)
 
 
 def train_transform():
@@ -81,6 +88,7 @@ if __name__ == '__main__':
     loss_s_train = []
     loss_train = []
     print("{} training...".format(datetime.now()))
+    start_time = time.time()
 
     for epoch in (range(n_epochs)):
         print("Epoch", epoch+1)
@@ -106,9 +114,14 @@ if __name__ == '__main__':
         print("{} Epoch {}, c_loss {}, s_loss {}, total_loss {}".format(
             datetime.now(), epoch+1, loss_c / data_length, loss_s / data_length, (loss_c + loss_s) / data_length))
 
+    end_time = time.time()
+
+    # print final training statistics
+    print("Total training time: {}".format(get_train_time(start_time, end_time)))
+    print("Final loss value: {}".format(loss_train[-1]))
+
     # save the decoder and plot file
     torch.save(model.decoder.state_dict(), decoder_path)
-
     plt.figure(figsize=(12, 7))
     plt.clf()
     plt.plot(loss_train, label='content+style')
