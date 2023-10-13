@@ -96,7 +96,9 @@ if __name__ == '__main__':
         loss_s = 0.0
 
         for batch in (range(n_batches)):
-            print("batch {}/{}".format(batch+1, n_batches))
+            # print("batch {}/{}".format(batch + 1, n_batches))
+            if (batch+1) % 50 == 0:
+                print("completed {}/{} batches".format(batch+1, n_batches))
             content_images = next(iter(content_dataloader)).to(device)
             style_images = next(iter(style_dataloader)).to(device)
             lc, ls = model(content_images, style_images)
