@@ -17,6 +17,25 @@ def get_train_time(start, end):
     return "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds)
 
 
+def get_batch_factor(num_batches):
+    factor = 1
+    if num_batches <= 5:
+        factor = 1
+    elif num_batches <= 20:
+        factor = 5
+    elif num_batches <= 50:
+        factor = 10
+    elif num_batches <= 100:
+        factor = 25
+    elif num_batches <= 200:
+        factor = 50
+    elif num_batches <= 500:
+        factor = 100
+    elif num_batches <= 1000:
+        factor = 250
+    return factor
+
+
 def train_transform():
     transform_list = [
         transforms.Resize(size=(512, 512)),
@@ -24,6 +43,12 @@ def train_transform():
         transforms.ToTensor()
     ]
     return transforms.Compose(transform_list)
+
+
+def adjust_learning_rate(optimizer, iteration_count):
+    lr = args.learn / (1.0 + args.gamma * iteration_count)
+    for param_group in optimizer.param_groups:
+        param_group['lr'] = lr
 
 
 if __name__ == '__main__':
@@ -65,8 +90,10 @@ if __name__ == '__main__':
 
     result_path = Path(args.p)
     use_cuda = str(args.cuda).lower()
+
     data_length = len(content_dataset)
     n_batches = len(content_dataloader)
+    batch_factor = get_batch_factor(n_batches)
 
     # initialize model and training parameters
     model = net.AdaIN_net(encoder, decoder)
@@ -91,14 +118,11 @@ if __name__ == '__main__':
     start_time = time.time()
 
     for epoch in (range(n_epochs)):
-        print("Epoch", epoch+1)
+        print("Epoch {}/{}".format(epoch+1, n_epochs))
         loss_c = 0.0
         loss_s = 0.0
 
         for batch in (range(n_batches)):
-            # print("batch {}/{}".format(batch + 1, n_batches))
-            if (batch+1) % 50 == 0:
-                print("completed {}/{} batches".format(batch+1, n_batches))
             content_images = next(iter(content_dataloader)).to(device)
             style_images = next(iter(style_dataloader)).to(device)
             lc, ls = model(content_images, style_images)
@@ -108,6 +132,10 @@ if __name__ == '__main__':
             optimizer.step()
             loss_c += lc.item()
             loss_s += ls.item()
+            if (batch+1) % batch_factor == 0:
+                print("completed {}/{} batches".format(batch+1, n_batches))
+
+        adjust_learning_rate(optimizer=optimizer, iteration_count=epoch+1)
 
         loss_c_train.append(loss_c / data_length)
         loss_s_train.append(loss_s / data_length)
