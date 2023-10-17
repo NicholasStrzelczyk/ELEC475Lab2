@@ -2,4 +2,4 @@
 # python3 train.py -content_dir ./../datasets/COCO1k/ -style_dir ./../datasets/wikiart1k/ -learn 1e-4 -gamma 5e-5 -e 20 -b 20 -l ./../encoder.pth -s ./../decoder1k.pth -p ./../plot1k.png -cuda Y
 # python3 train.py -content_dir ./../datasets/COCO10k/ -style_dir ./../datasets/wikiart10k/ -learn 1e-4 -gamma 5e-5 -e 20 -b 20 -l ./../encoder.pth -s ./../decoder10k.pth -p ./../plot10k.png -cuda Y
 
-python3 train.py -content_dir ./../datasets/COCO1k/ -style_dir ./../datasets/wikiart1k/ -learn 1e-4 -gamma 5e-5 -e 20 -b 50 -l ./../encoder.pth -s ./experiments/1k/decoder1k_b50.pth -p ./experiments/1k/plot1k_b50.png -cuda Y
+python3 train.py -content_dir ./../datasets/COCO10k/ -style_dir ./../datasets/wikiart10k/ -learn 1e-4 -gamma 5e-5 -e 20 -b 20 -l ./../encoder.pth -s ./experiments/10k/decoder10k_b20.pth -p ./experiments/10k/plot10k_b20.png -cuda Y
