@@ -1,11 +1,3 @@
-# python3 test.py -content_image images/content/baboon.jpg -style_image images/style/brushstrokes.jpg -decoder ./../decoder10k_b10.pth -encoder ./../encoder.pth -alpha 0.1 -cuda Y
-# python3 test.py -content_image images/content/baboon.jpg -style_image images/style/brushstrokes.jpg -decoder ./../decoder10k_b10.pth -encoder ./../encoder.pth -alpha 0.5 -cuda Y
-# python3 test.py -content_image images/content/baboon.jpg -style_image images/style/brushstrokes.jpg -decoder ./../decoder10k_b10.pth -encoder ./../encoder.pth -alpha 0.9 -cuda Y
-
-# python3 test.py -content_image images/content/cornell.jpg -style_image images/style/brushstrokes.jpg -decoder ./../decoder10k_b10.pth -encoder ./../encoder.pth -alpha 0.1 -cuda Y
-# python3 test.py -content_image images/content/cornell.jpg -style_image images/style/brushstrokes.jpg -decoder ./../decoder10k_b10.pth -encoder ./../encoder.pth -alpha 0.5 -cuda Y
-# python3 test.py -content_image images/content/cornell.jpg -style_image images/style/brushstrokes.jpg -decoder ./../decoder10k_b10.pth -encoder ./../encoder.pth -alpha 0.9 -cuda Y
-
-python3 test.py -content_image images/content/baboon.jpg -style_image images/style/brushstrokes.jpg -decoder ./experiments/100/decoder100_b20.pth -encoder ./../encoder.pth -alpha 0.1 -cuda Y
-python3 test.py -content_image images/content/baboon.jpg -style_image images/style/brushstrokes.jpg -decoder ./experiments/100/decoder100_b20.pth -encoder ./../encoder.pth -alpha 0.5 -cuda Y
-python3 test.py -content_image images/content/baboon.jpg -style_image images/style/brushstrokes.jpg -decoder ./experiments/100/decoder100_b20.pth -encoder ./../encoder.pth -alpha 0.9 -cuda Y
+python3 test.py -content_image images/content/000000000081.jpg -style_image images/style/brushstrokes.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.1 -cuda Y
+python3 test.py -content_image images/content/000000000081.jpg -style_image images/style/brushstrokes.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.5 -cuda Y
+python3 test.py -content_image images/content/000000000081.jpg -style_image images/style/brushstrokes.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.9 -cuda Y
