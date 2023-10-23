@@ -1,1 +1,1 @@
-python3 train.py -content_dir ./../datasets/COCO10k/ -style_dir ./../datasets/wikiart10k/ -learn 1e-4 -gamma 5e-5 -e 20 -b 20 -l ./../encoder.pth -s ./experiments/10k/decoder10k.pth -p ./experiments/10k/plot10k.png -cuda Y
+python3 train.py -content_dir ./../datasets/COCO100/ -style_dir ./../datasets/wikiart100/ -learn 1e-4 -gamma 5e-5 -e 20 -b 20 -l ./../encoder.pth -s ./../decoder_new.pth -p ./../plot_new.png -cuda Y

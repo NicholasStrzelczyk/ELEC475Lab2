@@ -1,3 +1,25 @@
+### 1st Content Image ###
 python3 test.py -content_image images/content/000000000081.jpg -style_image images/style/brushstrokes.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.1 -cuda Y
 python3 test.py -content_image images/content/000000000081.jpg -style_image images/style/brushstrokes.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.5 -cuda Y
 python3 test.py -content_image images/content/000000000081.jpg -style_image images/style/brushstrokes.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.9 -cuda Y
+
+python3 test.py -content_image images/content/000000000081.jpg -style_image images/style/chagall_marc_1.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.1 -cuda Y
+python3 test.py -content_image images/content/000000000081.jpg -style_image images/style/chagall_marc_1.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.5 -cuda Y
+python3 test.py -content_image images/content/000000000081.jpg -style_image images/style/chagall_marc_1.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.9 -cuda Y
+
+python3 test.py -content_image images/content/000000000081.jpg -style_image images/style/the-persistence-of-memory-1931.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.1 -cuda Y
+python3 test.py -content_image images/content/000000000081.jpg -style_image images/style/the-persistence-of-memory-1931.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.5 -cuda Y
+python3 test.py -content_image images/content/000000000081.jpg -style_image images/style/the-persistence-of-memory-1931.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.9 -cuda Y
+
+### 2nd Content Image ###
+python3 test.py -content_image images/content/cornell.jpg -style_image images/style/brushstrokes.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.1 -cuda Y
+python3 test.py -content_image images/content/cornell.jpg -style_image images/style/brushstrokes.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.5 -cuda Y
+python3 test.py -content_image images/content/cornell.jpg -style_image images/style/brushstrokes.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.9 -cuda Y
+
+python3 test.py -content_image images/content/cornell.jpg -style_image images/style/chagall_marc_1.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.1 -cuda Y
+python3 test.py -content_image images/content/cornell.jpg -style_image images/style/chagall_marc_1.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.5 -cuda Y
+python3 test.py -content_image images/content/cornell.jpg -style_image images/style/chagall_marc_1.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.9 -cuda Y
+
+python3 test.py -content_image images/content/cornell.jpg -style_image images/style/the-persistence-of-memory-1931.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.1 -cuda Y
+python3 test.py -content_image images/content/cornell.jpg -style_image images/style/the-persistence-of-memory-1931.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.5 -cuda Y
+python3 test.py -content_image images/content/cornell.jpg -style_image images/style/the-persistence-of-memory-1931.jpg -decoder ./experiments/10k/decoder10k_b50.pth -encoder ./../encoder.pth -alpha 0.9 -cuda Y
